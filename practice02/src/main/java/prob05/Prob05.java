@@ -23,6 +23,7 @@ public class Prob05 {
 			while(true) {
 				System.out.println(low+"-"+high);
 				System.out.print(k+">>");
+				k+=1;
 				int x = scanner.nextInt();
 				if(x==correctNumber) {
 					System.out.println("맞았습니다.");

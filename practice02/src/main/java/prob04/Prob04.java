@@ -13,6 +13,7 @@ public class Prob04 {
 		/* 코드를 완성합니다 */
 		
 		String cnt = "";
+	
 		for(int i=str.length()-1;i>0;i--) {
 			cnt += str.charAt(i);
 		}

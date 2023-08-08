@@ -7,7 +7,8 @@ public class Prob01 {
 		Scanner scanner = new Scanner( System.in  );
 
 		final int[] MONEYS = { 50000, 10000, 5000, 1000, 500, 100, 50, 10, 5, 1 };
-
+		
+		/* 코드 작성 */
 		System.out.print("금액: ");
 		int x = scanner.nextInt();
 		int cnt = 0;
@@ -15,7 +16,6 @@ public class Prob01 {
 			if(x==0) {
 				break;
 			}
-			
 			int k = x / MONEYS[cnt];
 			if(k>0) {
 				System.out.println(MONEYS[cnt]+"원 : " + k + "개");
@@ -23,5 +23,6 @@ public class Prob01 {
 			}
 			cnt += 1;
 		}
+		scanner.close();
  	}
 }
