@@ -10,7 +10,7 @@
 	<artifactId>practice01</artifactId>
 	<build>
 		<finalName>
-			practic01
+			practice01
 		</finalName>
 	</build>
 </project>
