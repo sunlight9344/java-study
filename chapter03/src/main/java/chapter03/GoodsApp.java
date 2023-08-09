@@ -9,6 +9,11 @@ public class GoodsApp {
 		camera.countSold = 40;
 		camera.countStock = 50;
 		
+		System.out.println(
+				"상품이름 : " + camera.name				
+		);
+		
+		
 	}
 	
 }
