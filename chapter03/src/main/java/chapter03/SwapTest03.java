@@ -5,6 +5,7 @@ import mypackage.Value;
 public class SwapTest03 {
 
 	public static void main(String[] args) {
+		
 		Value a = new Value(10);
 		Value b = new Value(20);
 		
