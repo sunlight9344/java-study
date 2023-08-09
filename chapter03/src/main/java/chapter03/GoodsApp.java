@@ -3,16 +3,24 @@ package chapter03;
 public class GoodsApp {
 
 	public static void main(String[] args) {
+		
 		Goods camera = new Goods();
-		camera.name = "Nikon";
-		camera.price = 400000;
-		camera.countSold = 40;
-		camera.countStock = 50;
+		camera.setName("Nikon");
+		camera.setPrice(400000);
+		camera.setCountSold(40);
+		camera.setCountStock(50);
 		
-		System.out.println(
-				"상품이름 : " + camera.name				
-		);
+		// 정보은닉(데이터보호)
+		//camera.setPrice(-1);
 		
+		for(int i=0;i<10;i++) {
+			System.out.println(Goods.countOfGoods);
+			new Goods();
+		}
+		
+		camera.showInfo();
+		int discountPrice = camera.calDiscountPrice(0.5);
+		System.out.println(discountPrice);
 		
 	}
 	
