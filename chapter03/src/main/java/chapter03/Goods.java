@@ -5,5 +5,5 @@ public class Goods {
 	String name;
 	int price;
 	int countStock;
-	int coundSold;
+	int countSold;
 }

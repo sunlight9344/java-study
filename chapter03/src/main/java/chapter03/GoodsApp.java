@@ -4,10 +4,11 @@ public class GoodsApp {
 
 	public static void main(String[] args) {
 		Goods camera = new Goods();
-		camera.name = "nikon";
+		camera.name = "Nikon";
 		camera.price = 400000;
-		camera.coundSold = 40;
+		camera.countSold = 40;
 		camera.countStock = 50;
+		
 	}
-
+	
 }
