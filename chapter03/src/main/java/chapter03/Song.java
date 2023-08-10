@@ -1,6 +1,7 @@
 package chapter03;
 
 public class Song {
+	
 	private String title;
 	private String album;
 	private String composer;
