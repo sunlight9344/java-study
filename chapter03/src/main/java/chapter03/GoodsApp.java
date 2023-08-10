@@ -22,6 +22,9 @@ public class GoodsApp {
 		int discountPrice = camera.calDiscountPrice(0.5);
 		System.out.println(discountPrice);
 		
+		Goods tv = new Goods("TV",999999,10,1);
+		tv.showInfo();
+		
 	}
 	
 }

@@ -14,7 +14,6 @@ public class Goods {
 	}
 	
 	public Goods(String name, int price, int countStock, int countSold) {
-		super();
 		this.name = name;
 		this.price = price;
 		this.countStock = countStock;
