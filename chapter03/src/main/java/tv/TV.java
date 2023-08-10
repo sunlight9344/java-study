@@ -32,6 +32,12 @@ public class TV {
 	
 	public void channel(int channel) {
 		this.channel = channel;
+		if(channel<0) {
+			this.channel = 255;
+		}
+		if(channel>255) {
+			this.channel = 0;
+		}
 	}
 	
 	public void volume(boolean up) {
@@ -50,6 +56,12 @@ public class TV {
 	
 	public void volume(int volume) {
 		this.volume = volume;
+		if(volume<0) {
+			this.volume = 100;
+		}
+		if(volume>100) {
+			this.volume = 0;
+		}
 	}
 	
 	public void status() {
