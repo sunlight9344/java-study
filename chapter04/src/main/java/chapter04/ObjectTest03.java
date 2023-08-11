@@ -11,7 +11,7 @@ public class ObjectTest03 {
 		System.out.println(s1.hashCode()+":"+s2.hashCode());
 		System.out.println(System.identityHashCode(s1)+":"+System.identityHashCode(s2));
 		
-		System.out.println("===============================");
+		System.out.println("============================");
 		
 		String s3 = "hello";
 		String s4 = "hello";
