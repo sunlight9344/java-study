@@ -1,8 +1,10 @@
 package prob01;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
-public class Gugudan {
+public class GugudanApp {
 
 	static int resultNumber = 0;
 
@@ -48,6 +50,17 @@ public class Gugudan {
 		/* 코드 작성(수정 가능) */
 		final int COUNT_ANSWER_NUMBER = 9;
 		int[] boardNumbers = new int[COUNT_ANSWER_NUMBER];
+		Set<Integer> set = new HashSet<>();
+		
+		while(set.size()<COUNT_ANSWER_NUMBER) {
+			set.add(randomize(1,81));
+		}
+		int k = 0;
+		for(Integer i:set) {
+			boardNumbers[k] = i;
+			k += 1;
+		}
+		
 		return boardNumbers;
 	}
 }
