@@ -27,6 +27,11 @@ public class PhoneTest02 {
 		
 		System.out.println("===== 전화번호 =====");
 		
+		
+		
+		
+		
+		
 		Scanner scanner = new Scanner(file);
 		
 		while(scanner.hasNextLine()) {
