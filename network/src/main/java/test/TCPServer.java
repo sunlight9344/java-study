@@ -44,7 +44,7 @@ public class TCPServer {
 					
 					if(readByteCount == -1) {
 						// 클라이언트가 정상적으로 종료(close() 호출)
-						System.out.println("뿌앵뿌앵뿌뿌뿌[server] closed by client");
+						System.out.println("[server] closed by client");
 						break;
 					}
 					
