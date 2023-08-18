@@ -24,7 +24,7 @@ public class EchoServer {
 			
 			while(true) {
 				Socket socket = serverSocket.accept();
-				new Thread().run();
+				new EchoRequestHandler(socket).start();
 			}
 		} catch (IOException e) {
 			log("error:" + e);
@@ -40,6 +40,6 @@ public class EchoServer {
 	}
 	
 	private static void log(String message) {
-		System.out.println("[EchoServer] " + message);
+		System.out.println("[EchoServer#" + Thread.currentThread().getId()+"] " + message);
 	}
 }
