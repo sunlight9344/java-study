@@ -35,7 +35,6 @@ public class EchoRequestHandler extends Thread {
 					log("closed by client");
 					break;
 				}
-				
 				log("received:" + data);
 				pw.println(data);
 			}				

@@ -22,7 +22,7 @@ public class TCPServer {
 			// Socket에 InetSocketAddress(IPAddress_+ port)를 바인딩 한다.
 			// IPAddress: 0.0.0.0 를 쓰는 이유는 특정 호스트 IP에 바인딩 하지 않는다.
 			// 127.0.0.1 루프백? 자기 자신한테 돌아옴
-			serverSocket.bind(new InetSocketAddress("127.0.0.1",5000),10);
+			serverSocket.bind(new InetSocketAddress("0.0.0.0",5000),10);
 
 			//3. accept
 			Socket socket = serverSocket.accept(); // blocking
