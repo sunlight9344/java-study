@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -19,6 +17,11 @@ public class RequestHandler extends Thread {
 	@Override
 	public void run() {
 		try {
+			
+			// logging Remote Host IP Address & Port
+			InetSocketAddress inetSocketAddress = ( InetSocketAddress )socket.getRemoteSocketAddress();
+			log( "connected from " + inetSocketAddress.getAddress().getHostAddress() + ":" + inetSocketAddress.getPort() );
+						
 			// get IOStream
 			OutputStream outputStream = socket.getOutputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
@@ -47,9 +50,14 @@ public class RequestHandler extends Thread {
 			
 			log(request);
 			
-			// logging Remote Host IP Address & Port
-			InetSocketAddress inetSocketAddress = ( InetSocketAddress )socket.getRemoteSocketAddress();
-			log( "connected from " + inetSocketAddress.getAddress().getHostAddress() + ":" + inetSocketAddress.getPort() );
+			String[] tokens = request.split(" ");
+			if("GET".equals(tokens[0])) {
+				responseStaticResorce(outputStream, tokens[1], tokens[2]);
+			}else {
+				// methods: POST, PUT, DELETE, GET, HEAD, CONNECT, AUTHORIZED
+				// SimpleHttpServer에서는 무시(400 Bad Request 를 보내게따!)
+				// 일단 이건 나중에 responseStaticResorce400Error(outputStream,tokens[2]);
+			}
 					
 			// 예제 응답입니다.
 //			 서버 시작과 테스트를 마친 후, 주석 처리 합니다.
@@ -71,6 +79,20 @@ public class RequestHandler extends Thread {
 				log( "error:" + ex );
 			}
 		}			
+	}
+
+	private void responseStaticResorce400Error(OutputStream outputStream) {
+	
+	}
+
+	private void responseStaticResorce(
+			OutputStream outputStream, 
+			String url, 
+			String protocol)
+	{
+		
+		
+		
 	}
 
 	public void log( String message ) {
