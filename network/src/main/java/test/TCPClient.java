@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 
 public class TCPClient {
 	private static final String SERVER_IP = "127.0.0.1";
@@ -36,6 +37,9 @@ public class TCPClient {
 			//1-3. SO_NODELAY(Nagle Algorithm off)
 			socket.setTcpNoDelay(true);
 			
+			//1-4. SO_TIMEOUT
+			
+			
 			//2. 서버 연결
 			socket.connect(new InetSocketAddress(SERVER_IP,SERVER_PORT));
 			
@@ -59,6 +63,8 @@ public class TCPClient {
 			data = new String(buffer,0,readByteCount,"utf-8");
 			System.out.println("[client] received:" + data);
 			
+		} catch (SocketTimeoutException e) {
+			System.out.println("[client] suddenly closed by server");
 		} catch (SocketException e) {
 			System.out.println("[client] suddenly closed by server");
 		} catch (IOException e) {
