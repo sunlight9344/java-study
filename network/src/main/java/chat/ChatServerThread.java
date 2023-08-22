@@ -17,10 +17,8 @@ public class ChatServerThread extends Thread{
 	private Socket socket;
 	private String nickname;
 	List<Writer> listWriters;
-	BufferedReader br = null;
-	PrintWriter pw = null;
-	
-	
+	private BufferedReader br = null;
+	private PrintWriter pw = null;
 	
 	public ChatServerThread(Socket socket, List<Writer> listWriters) {
 		this.socket = socket;
@@ -102,7 +100,7 @@ public class ChatServerThread extends Thread{
 	private void broadcast(String data) {
 		   synchronized(listWriters) {
 		      for(Writer writer : listWriters) {
-				((PrintWriter)writer).println(nickname +":"+ data);
+				((PrintWriter)writer).println(nickname +": "+ data);
 		      }
 		   }
 		}
