@@ -30,6 +30,7 @@ public class ChatClient {
 			String nickname = scanner.nextLine();
 			pw.println("join:" + nickname);
 			String response = br.readLine();
+			
 			while(true) {
 				if("done".equals(response)) {
 					break;
