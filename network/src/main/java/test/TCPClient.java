@@ -33,6 +33,9 @@ public class TCPClient {
 			sndBufferSize = socket.getSendBufferSize();
 			System.out.println(rcvBufferSize + ":" + sndBufferSize);
 			
+			//1-3. SO_NODELAY(Nagle Algorithm off)
+			socket.setTcpNoDelay(true);
+			
 			//2. 서버 연결
 			socket.connect(new InetSocketAddress(SERVER_IP,SERVER_PORT));
 			
