@@ -38,7 +38,7 @@ public class TCPClient {
 			socket.setTcpNoDelay(true);
 			
 			//1-4. SO_TIMEOUT
-			
+			socket.setTcpNoDelay(true);
 			
 			//2. 서버 연결
 			socket.connect(new InetSocketAddress(SERVER_IP,SERVER_PORT));
