@@ -13,7 +13,6 @@ public class ChatServer {
 	public static void main(String[] args) {
 		ServerSocket serverSocket = null;
 		List<ChatUser> listUsers = new ArrayList<ChatUser>();
-		
 		try {
 			serverSocket = new ServerSocket();
 			serverSocket.bind( new InetSocketAddress("0.0.0.0", PORT ) );			
@@ -27,7 +26,6 @@ public class ChatServer {
 			e.printStackTrace();
 		}
 	}
-	
 	static void log(String message) {
 		System.out.println("[ChatServer#" + Thread.currentThread().getId()+"] " + message);
 	}

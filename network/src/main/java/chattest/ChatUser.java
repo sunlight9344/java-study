@@ -16,7 +16,7 @@ public class ChatUser {
 	}
 	
 	public void pwPrint(String sayUserName,String data) {
-		pw.println(sayUserName + " : " + data);
+		pw.println("<< " +sayUserName + " : " + data);
 	}
 
 	public BufferedReader getBr() {

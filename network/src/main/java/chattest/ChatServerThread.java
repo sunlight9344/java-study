@@ -60,6 +60,7 @@ public class ChatServerThread extends Thread{
 				}
 			}
 		} catch (SocketException e) {
+			doQuit(user);
 			ChatServer.log("Suddenly closed by client[" + remoteHostAddress + ":" + remotePort + "]");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -107,7 +108,9 @@ public class ChatServerThread extends Thread{
 	private void broadcast(String data) {
 	   synchronized(listUsers) {
 	      for(ChatUser listuser : listUsers) {
-	    	  listuser.pwPrint(user.getNickname(),data);
+	    	  if(!listuser.equals(user)) {
+	    		  listuser.pwPrint(user.getNickname(),data);
+	    	  }
 	      }
 	   }
 	}
