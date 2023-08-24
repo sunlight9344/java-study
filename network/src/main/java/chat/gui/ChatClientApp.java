@@ -8,7 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
-import chattest.ChatServer;
+import chat.ChatServer;
 
 public class ChatClientApp {
 	

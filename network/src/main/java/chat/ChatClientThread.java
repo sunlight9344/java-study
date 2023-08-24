@@ -25,7 +25,7 @@ public class ChatClientThread extends Thread {
 					break;
 				}
 				System.out.println(line);
-			
+				//System.out.print(">> ");
 			}
 		} catch(SocketException e) {
 			System.out.println("채팅방에서 나왔습니다!");
