@@ -56,7 +56,7 @@ public class ChatClient {
 					continue;
 				}
 				//pw.println("message:"+input);
-				System.out.println("-- " + input);
+				System.out.println("나 >> " + input);
 				pw.println("message:"+input);
 				//System.out.print("<< ");
 			}

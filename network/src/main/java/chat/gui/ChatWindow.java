@@ -106,16 +106,20 @@ public class ChatWindow {
 	
 	private void sendMessage() {
 		String message = textField.getText();
-		//System.out.println("메세지를 보내는 프로코톨 구현:" + message);
 		textField.setText("");
 		textField.requestFocus();
+		
+		if("quit".equals(message)) {
+			finish();
+		}
+		
 		pw.println("message:"+message);
 		// ChatClientThread 에서 서버로 부터 받은 메세지가 있다고 치고~~
 		updateTextArea(message);
 	}
 	
 	private void updateTextArea(String message) {
-		textArea.append(message);
+		textArea.append("나 >> "+message);
 		textArea.append("\n");
 	}
 	
@@ -129,8 +133,9 @@ public class ChatWindow {
 					if (line == null) {
 						break;
 					}
-					updateTextArea(line);
-					System.out.println(line);
+					textArea.append(line);
+					textArea.append("\n");
+					//System.out.println(line);
 				}
 			} catch (SocketException e) {
 				System.out.println("채팅방에서 나왔습니다!");
