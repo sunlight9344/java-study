@@ -12,6 +12,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.Socket;
 
 public class ChatWindow {
 
@@ -20,30 +21,28 @@ public class ChatWindow {
 	private Button buttonSend;
 	private TextField textField;
 	private TextArea textArea;
+	private Socket socket;
 
-	public ChatWindow(String name) {
+	public ChatWindow(String name,Socket socket) {
 		frame = new Frame(name);
 		pannel = new Panel();
 		buttonSend = new Button("Send");
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
+		this.socket = socket;
 	}
 
 	public void show() {
 		// Button
 		buttonSend.setBackground(Color.GRAY);
 		buttonSend.setForeground(Color.WHITE);
-		buttonSend.addActionListener( new ActionListener() {
+		buttonSend.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				sendMessage();
 			}
 		});
 		
-//		buttonSend.addActionListener((ActionEvent e) -> {
-//
-//		});
-
 		// Textfield
 		textField.setColumns(80);
 		textField.addKeyListener(new KeyAdapter() {
@@ -54,7 +53,6 @@ public class ChatWindow {
 					sendMessage();
 				}
 			}
-			
 		});
 
 		// Pannel
@@ -77,26 +75,25 @@ public class ChatWindow {
 		frame.pack();
 		
 		// IOStream 받아오기
-		//ChatClientThread 생성하고 실행
+		// ChatClientThread 생성하고 실행
 	}
 	
 	private void finish() {
-		// quit 프로코톨 구현
+		// quit 프로토콜 구현
+		
+		
 		// exit java(JVM)
 		System.exit(0);
 	}
-
+	
 	private void sendMessage() {
-		// 비어있으면 안되게
 		String message = textField.getText();
-		if(!message.isEmpty()) {
-			System.out.println("메세지를 보내는 프로토콜 구현:" + message);
-		}
+		System.out.println("메세지를 보내는 프로코톨 구현:" + message);
+		
 		textField.setText("");
 		textField.requestFocus();
 		
-		// ChatClientThread 에서 서버로부터 받은 메세지가 있다고 치고~~고치고치도슴고치고슴고치
-		// 여기서 부르는거 아니다잉
+		// ChatClientThread 에서 서버로 부터 받은 메세지가 있다고 치고~~
 		updateTextArea("마이콜: " + message);
 	}
 	
@@ -105,13 +102,10 @@ public class ChatWindow {
 		textArea.append("\n");
 	}
 	
-	// 이렇게 하는 이유 여기서 자기 위에 있는 outer class 의 method 를 사용할 수 있다.
-	private class ChatClientThread extends Thread{
-
+	private class ChatClientThread extends Thread {
 		@Override
 		public void run() {
-			updateTextArea("마이콜:안녕~");
+			updateTextArea("마이콜: 안녕~");
 		}
-		
 	}
 }

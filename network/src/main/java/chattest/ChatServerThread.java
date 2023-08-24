@@ -40,7 +40,7 @@ public class ChatServerThread extends Thread{
 				String request = br.readLine();
 
 				if (request == null) {
-					ChatServer.log("클라이언트로부터 연결 끊김");
+					ChatServer.log("클라이언트로부터 연결 끊김1");
 					doQuit(user);
 					break;
 				}
