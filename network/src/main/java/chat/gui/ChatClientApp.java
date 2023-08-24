@@ -27,7 +27,6 @@ public class ChatClientApp {
 			if (name.isEmpty() == false ) {
 				break;
 			}
-			
 			System.out.println("대화명은 한글자 이상 입력해야 합니다.\n");
 		}
 		
@@ -55,17 +54,12 @@ public class ChatClientApp {
 			}
 			System.out.println("채팅방에 입장하였습니다!");
 			
+			new ChatWindow(name,socket).show();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
 		//2. connect server
 		//3. join protocol 진행
-		
-		String line = "JOIN:OK";
-		if("JOIN:OK".equals(line)) {
-			new ChatWindow(name,socket).show();
-		}
 	}
 }
