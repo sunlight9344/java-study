@@ -22,7 +22,7 @@ public class EchoClient {
 			
 			socket.connect(new InetSocketAddress(SERVER_IP, EchoServer.PORT));
 			log("connected");
-			
+			//dfaf
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 		
