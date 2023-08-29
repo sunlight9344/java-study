@@ -80,5 +80,6 @@ public class ChatClient {
 	}
 	static void log(String message) {
 		System.out.println("[ChatClient#" + Thread.currentThread().getId()+"] " + message);
+		
 	}
 }
